@@ -1,0 +1,17 @@
+version: '2'
+services:
+  plant-manager-api:
+    image: 'node:10-alpine'
+    working_dir: /app
+    user: node
+    volumes:
+      - '.:/app'
+    environment:
+      - PORT=3000
+    command: npm run start:dev
+    ports:
+      - '3001:3000'
+networks:
+  default:
+    external:
+      name: plant_manager_network
